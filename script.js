@@ -1,3 +1,4 @@
+// ========= TRAILER CAROUSEL (YOUR VERSION, WITH URL → ID PARSER) =========
 const trailers = [
   {
     url: "https://www.youtube.com/watch?v=2igK9E2vA5E",
@@ -98,8 +99,49 @@ function showPrev() {
   renderTrailer(currentTrailerIndex);
 }
 
-prevBtn.addEventListener("click", showPrev);
-nextBtn.addEventListener("click", showNext);
+if (prevBtn && nextBtn && placeholder) {
+  prevBtn.addEventListener("click", showPrev);
+  nextBtn.addEventListener("click", showNext);
 
-// Initial render
-renderTrailer(currentTrailerIndex);
+  // Initial render
+  renderTrailer(currentTrailerIndex);
+}
+
+// ========= CURSOR FLASHLIGHT (FEATURE 6) =========
+const cursorLightEl = document.querySelector(".cursor-light");
+
+function updateCursorLight(x, y) {
+  if (!cursorLightEl) return;
+
+  const xPercent = (x / window.innerWidth) * 100;
+  const yPercent = (y / window.innerHeight) * 100;
+
+  cursorLightEl.style.setProperty("--cursor-x", `${xPercent}%`);
+  cursorLightEl.style.setProperty("--cursor-y", `${yPercent}%`);
+}
+
+document.addEventListener("pointermove", (e) => {
+  updateCursorLight(e.clientX, e.clientY);
+});
+
+// default to center on load
+updateCursorLight(window.innerWidth / 2, window.innerHeight / 2);
+
+// ========= FLICKER INTRO (FEATURE 1) =========
+const introOverlay = document.getElementById("introOverlay");
+
+window.addEventListener("load", () => {
+  if (!introOverlay) return;
+
+  // let the flicker animation play, then fade out
+  setTimeout(() => {
+    introOverlay.classList.add("intro-fade-out");
+
+    // remove from DOM after fade so it doesn't block clicks
+    setTimeout(() => {
+      if (introOverlay && introOverlay.parentNode) {
+        introOverlay.parentNode.removeChild(introOverlay);
+      }
+    }, 800);
+  }, 1700); // matches CSS flicker duration + a tiny buffer
+});
