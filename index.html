@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Primal Max</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header class="pm-header">
+    <img src="primalmax_logo.png" alt="Primal Max logo" class="pm-logo" />
+  </header>
+
+  <main class="pm-main">
+    <!-- Social column -->
+    <aside class="pm-social">
+      <a href="https://youtube.com/@primaxco" target="_blank" class="social-link">
+        <img src="social_youtube.png" alt="YouTube" />
+      </a>
+      <a href="https://x.com/primal_max" target="_blank" class="social-link">
+        <img src="social_x.png" alt="X (Twitter)" />
+      </a>
+      <a href="https://discord.gg/BkcCm6yu2q" target="_blank" class="social-link">
+        <img src="social_discord.png" alt="Discord" />
+      </a>
+      <a href="https://www.meta.com/experiences/your-game-link" target="_blank" class="social-link">
+        <img src="social_meta.png" alt="Meta Quest Store" />
+      </a>
+    </aside>
+
+    <!-- Trailer / main panel -->
+    <section class="pm-trailer-section">
+      <button class="nav-arrow left" id="prevTrailer">&lt;</button>
+
+      <div class="trailer-card">
+        <div id="trailerPlaceholder" class="trailer-placeholder">
+          <!-- JS fills this with an iframe + title -->
+          <p class="trailer-loading">
+            trailer 1 placeholder<br />(youtube video)
+          </p>
+        </div>
+      </div>
+
+      <button class="nav-arrow right" id="nextTrailer">&gt;</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
