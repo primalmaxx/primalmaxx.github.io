@@ -2,19 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Primal Max</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primal Max</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Subtle gradient/fog background -->
   <div class="background-overlay"></div>
 
+  <!-- Red flashlight effect -->
+  <div class="cursor-light"></div>
+
+  <!-- Flicker intro -->
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-content">
+      <img src="primalmax_logo.png" alt="Primal Max logo" class="intro-logo" />
+      <p class="intro-text">INITIALIZING PRIMAL MAX...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
   <header class="pm-header">
     <img src="primalmax_logo.png" alt="Primal Max logo" class="pm-logo" />
   </header>
 
+  <!-- Main content -->
   <main class="pm-main">
-    <!-- Social column -->
+    <!-- Social icons -->
     <aside class="pm-social">
       <a href="https://youtube.com/@primaxco" target="_blank" class="social-link">
         <img src="social_youtube.png" alt="YouTube" />
@@ -25,24 +39,21 @@
       <a href="https://discord.gg/BkcCm6yu2q" target="_blank" class="social-link">
         <img src="social_discord.png" alt="Discord" />
       </a>
-      <a href="https://www.meta.com/experiences/your-game-link" target="_blank" class="social-link">
+      <a href="https://www.meta.com/experiences/primalmax" target="_blank" class="social-link">
         <img src="social_meta.png" alt="Meta Quest Store" />
       </a>
     </aside>
 
-    <!-- Trailer / main panel -->
+    <!-- Trailer section -->
     <section class="pm-trailer-section">
       <button class="nav-arrow left" id="prevTrailer">&lt;</button>
-
       <div class="trailer-card">
         <div id="trailerPlaceholder" class="trailer-placeholder">
-          <!-- JS fills this with an iframe + title -->
           <p class="trailer-loading">
-            trailer 1 placeholder<br />(youtube video)
+            trailer 1 placeholder<br>(youtube video)
           </p>
         </div>
       </div>
-
       <button class="nav-arrow right" id="nextTrailer">&gt;</button>
     </section>
   </main>
